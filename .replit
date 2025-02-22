@@ -1,2 +1,18 @@
+modules = ["nodejs-20"]
 [nix]
 channel = "stable-24_05"
+
+[workflows]
+runButton = "Start Server"
+
+[[workflows.workflow]]
+name = "Start Server"
+author = 26932768
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "node backend/src/server.js"
+
+[[ports]]
+localPort = 8080
+externalPort = 80
